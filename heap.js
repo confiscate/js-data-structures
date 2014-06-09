@@ -1,18 +1,41 @@
 
 // Generic binary heap
 function Heap(opt_arr) {
+  // first element is not used
   this.arr = [0];
   if (opt_arr) {
-    this.heapify(opt_arr);
+    this.buildHeap(opt_arr);
   }
 }
 
-Heap.prototype.heapify = function(arr) {
-  if (!arr) return;
+Heap.prototype.buildHeap = function(input) {
+  if (!input || input.length == 0) return;
+  this.arr = this.arr.concat(input);
+  for (var i = Math.floor(this.arr.length / 2); i >= 1; i--) {
+    this.heapify(i);
+  }
+}
 
-  // TODO: change this to an O(N) implementation 
-  for (var i = 0; i < arr.length; i++) {
-    this.insert(arr[i]);
+Heap.prototype.heapify = function(idx) {
+  var arr = this.arr;
+  if (!arr) return;
+  while (true) {
+    var left = 2 * idx;
+    var right = 2 * idx + 1;
+    if (right < arr.length && arr[idx] > arr[right] &&
+        arr[right] < arr[left]) {
+      var tmp = arr[idx];
+      arr[idx] = arr[right];
+      arr[right] = tmp;
+      idx = right;
+    } else if (left < arr.length && arr[idx] > arr[left]) {
+      var tmp = arr[idx];
+      arr[idx] = arr[left];
+      arr[left] = tmp;
+      idx = left;      
+    } else {
+      break;
+    }
   }
 }
 
@@ -34,25 +57,7 @@ Heap.prototype.pop = function() {
   if (this.size() == 1) return arr.pop();
   var top = arr[1];
   arr[1] = arr.pop();
-  var idx = 1;
-  while (true) {
-    var left = 2 * idx;
-    var right = 2 * idx + 1;
-    if (right < arr.length && arr[idx] > arr[right] &&
-        arr[right] < arr[left]) {
-      var tmp = arr[idx];
-      arr[idx] = arr[right];
-      arr[right] = tmp;
-      idx = right;
-    } else if (left < arr.length && arr[idx] > arr[left]) {
-      var tmp = arr[idx];
-      arr[idx] = arr[left];
-      arr[left] = tmp;
-      idx = left;      
-    } else {
-      break;
-    }
-  }
+  this.heapify(1);
   return top;
 }
 
