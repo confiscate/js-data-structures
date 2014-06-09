@@ -1,0 +1,85 @@
+<html>
+<head>
+<script src="stack.js"></script>
+<style>
+  body {
+    font-family: arial
+  }
+  h1 {
+    color: blue
+  }
+</style>
+</head>
+<body>
+<h1>Stack</h1>
+<script>
+var stackArray = [9, 100, 22, 5, 3, 3];
+var stack = new Stack(stackArray);
+
+function printStackAuxiliaryInfo(stack) { 
+  document.write('<i>Size</i>: ' + stack.size());
+  document.write('<br/>');
+  document.write('<i>isEmpty</i>: ' + stack.isEmpty());
+  document.write('<br/>');
+  document.write('<br/>');
+  document.write(stack.toString());
+}
+</script>
+
+<h3>Input List</h3>
+<script>
+  document.write(stackArray.join(', '));
+</script>
+
+<h3>Convert to Stack</h3>
+<script>
+  document.write('<i>Array</i>: ' + stack.toString());
+  document.write('<br/>');
+  printStackAuxiliaryInfo(stack);
+</script>
+
+<h3>Pop</h3>
+<script>
+  document.write('<i>Popped</i>: ' + stack.pop());
+  document.write('<br/>');
+  printStackAuxiliaryInfo(stack);
+</script>
+
+<h3>Peek</h3>
+<script>
+  document.write('<i>Peeked</i>: ' + stack.peek());
+  document.write('<br/>');
+  printStackAuxiliaryInfo(stack);
+</script>
+
+<h3>Insert (20)</h3>
+<script>
+  stack.insert(20);
+  printStackAuxiliaryInfo(stack);
+</script>
+
+<h3>Pop Until 2 Items Left</h3>
+<script>
+  while (stack.size() > 2) {
+    stack.pop();
+  }
+  printStackAuxiliaryInfo(stack);
+</script>
+
+<h3>Pop Until Empty</h3>
+<script>
+  while (!stack.isEmpty()) {
+    stack.pop();
+  }
+  printStackAuxiliaryInfo(stack);
+</script>
+
+
+<h3>Pop from Empty Stack</h3>
+<script>
+  stack.pop();
+  printStackAuxiliaryInfo(stack);
+</script>
+
+</body>
+</html>
