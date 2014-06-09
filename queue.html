@@ -1,0 +1,85 @@
+<html>
+<head>
+<script src="queue.js"></script>
+<style>
+  body {
+    font-family: arial
+  }
+  h1 {
+    color: blue
+  }
+</style>
+</head>
+<body>
+<h1>Queue</h1>
+<script>
+var queueArray = [3, 251, 1922, -53, 3, 11];
+var queue = new Queue(queueArray);
+
+function printQueueAuxiliaryInfo(queue) { 
+  document.write('<i>Size</i>: ' + queue.size());
+  document.write('<br/>');
+  document.write('<i>isEmpty</i>: ' + queue.isEmpty());
+  document.write('<br/>');
+  document.write('<br/>');
+  document.write(queue.toString());
+}
+</script>
+
+<h3>Input List</h3>
+<script>
+  document.write(queueArray.join(', '));
+</script>
+
+<h3>Convert to Queue</h3>
+<script>
+  document.write('<i>Array</i>: ' + queue.toString());
+  document.write('<br/>');
+  printQueueAuxiliaryInfo(queue);
+</script>
+
+<h3>Pop</h3>
+<script>
+  document.write('<i>Popped</i>: ' + queue.pop());
+  document.write('<br/>');
+  printQueueAuxiliaryInfo(queue);
+</script>
+
+<h3>Peek</h3>
+<script>
+  document.write('<i>Peeked</i>: ' + queue.peek());
+  document.write('<br/>');
+  printQueueAuxiliaryInfo(queue);
+</script>
+
+<h3>Insert (20)</h3>
+<script>
+  queue.insert(20);
+  printQueueAuxiliaryInfo(queue);
+</script>
+
+<h3>Pop Until 2 Items Left</h3>
+<script>
+  while (queue.size() > 2) {
+    queue.pop();
+  }
+  printQueueAuxiliaryInfo(queue);
+</script>
+
+<h3>Pop Until Empty</h3>
+<script>
+  while (!queue.isEmpty()) {
+    queue.pop();
+  }
+  printQueueAuxiliaryInfo(queue);
+</script>
+
+
+<h3>Pop from Empty Queue</h3>
+<script>
+  queue.pop();
+  printQueueAuxiliaryInfo(queue);
+</script>
+
+</body>
+</html>

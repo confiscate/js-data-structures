@@ -1,7 +1,6 @@
 
 // Generic stack
 function Stack(opt_arr) {
-  // first element is not used
   this.arr = opt_arr ? opt_arr.slice(0) : [];
 }
 
@@ -12,7 +11,7 @@ Stack.prototype.insert = function(value) {
 Stack.prototype.pop = function() {
   var arr = this.arr;
   if (!arr || this.isEmpty()) return null;
-  return this.arr.shift();
+  return arr.shift();
 }
 
 Stack.prototype.peek = function() {
