@@ -1,0 +1,95 @@
+<html>
+<head>
+<script src="heap.js"></script>
+<style>
+body { font-family: arial }
+h1 { color: blue }
+</style>
+</head>
+<body>
+<h1>Heap</h1>
+<script>
+var heapArray = [9, 13, 22, 5, 3, 3, 100, 82, 1];
+var heap = new Heap(heapArray);
+
+function printHeapAuxiliaryInfo(heap) { 
+  document.write('<i>Size</i>: ' + heap.size());
+  document.write('<br/>');
+  document.write('<i>isEmpty</i>: ' + heap.isEmpty());
+  document.write('<br/>');
+  document.write('<br/>');
+  document.write(heap.toString());
+}
+</script>
+
+<h3>Input List</h3>
+<script>
+document.write(heapArray.join(', '));
+</script>
+
+<h3>Heapified</h3>
+<script>
+document.write('<i>Array</i>: ' + heap.toStringList());
+document.write('<br/>');
+printHeapAuxiliaryInfo(heap);
+</script>
+
+<h3>Pop</h3>
+<script>
+document.write('<i>Popped</i>: ' + heap.pop());
+document.write('<br/>');
+printHeapAuxiliaryInfo(heap);
+</script>
+
+<h3>Peek</h3>
+<script>
+document.write('<i>Popped</i>: ' + heap.peek());
+document.write('<br/>');
+printHeapAuxiliaryInfo(heap);
+</script>
+
+<h3>Insert (-15)</h3>
+<script>
+heap.insert(-15);
+printHeapAuxiliaryInfo(heap);
+</script>
+
+<h3>Insert (202)</h3>
+<script>
+heap.insert(202);
+printHeapAuxiliaryInfo(heap);
+</script>
+
+<h3>Pop 3 Times</h3>
+<script>
+heap.pop();
+heap.pop();
+heap.pop();
+printHeapAuxiliaryInfo(heap);
+</script>
+
+<h3>Pop Until 2 Items Left</h3>
+<script>
+while (heap.size() > 2) {
+  heap.pop();
+}
+printHeapAuxiliaryInfo(heap);
+</script>
+
+<h3>Pop Until Empty</h3>
+<script>
+while (!heap.isEmpty()) {
+  heap.pop();
+}
+printHeapAuxiliaryInfo(heap);
+</script>
+
+
+<h3>Pop from Empty Heap</h3>
+<script>
+heap.pop();
+printHeapAuxiliaryInfo(heap);
+</script>
+
+</body>
+</html>
