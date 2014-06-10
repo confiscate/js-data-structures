@@ -1,0 +1,97 @@
+<html>
+<head>
+<script src="hashmap.js"></script>
+<style>
+  body {
+    font-family: arial
+  }
+  h1 {
+    color: blue
+  }
+</style>
+</head>
+<body>
+<h1>HashMap</h1>
+<script>
+var map = {
+  name: 'Wayne',
+  age: 23,
+  occupation: 'Uber Driver',
+  phone: 111
+};
+var hashmap = new HashMap(map);
+
+function printHashMapAuxiliaryInfo(hashmap) { 
+  document.write('<i>Size</i>: ' + hashmap.size());
+  document.write('<br/>');
+  document.write('<i>isEmpty</i>: ' + hashmap.isEmpty());
+  document.write('<br/>');
+  document.write('<br/>');
+  document.write(hashmap.toString());
+}
+</script>
+
+<h3>Input List</h3>
+<script>
+  for (var property in map) {
+    document.write(property + '&nbsp;&nbsp;&nbsp;' + map[property] + '<br/>');
+  }
+</script>
+
+<h3>HashMap</h3>
+<script>
+  printHashMapAuxiliaryInfo(hashmap);
+</script>
+
+<h3>Get Age</h3>
+<script>
+  document.write('<i>Has key</i>: ' + hashmap.has('age'));
+  document.write('<br/>');
+  document.write('<i>Age</i>: ' + hashmap.get('age'));
+</script>
+
+<h3>Get Invalid Key</h3>
+<script>
+  document.write('<i>Has key</i>: ' + hashmap.has('email'));
+  document.write('<br/>');
+  document.write('<i>Email</i>: ' + hashmap.get('email'));
+</script>
+
+<h3>Insert Email</h3>
+<script>
+  hashmap.put('email', 'hello@hello.com');
+  printHashMapAuxiliaryInfo(hashmap);
+</script>
+
+<h3>Get Inserted Key</h3>
+<script>
+  document.write('<i>Has key</i>: ' + hashmap.has('email'));
+  document.write('<br/>');
+  document.write('<i>Email</i>: ' + hashmap.get('email'));
+</script>
+
+<h3>Remove Age</h3>
+<script>
+  hashmap.remove('age');
+  printHashMapAuxiliaryInfo(hashmap);
+</script>
+
+<h3>Remove Until Empty</h3>
+<script>
+  hashmap.remove('name');
+  hashmap.remove('occupation');
+  hashmap.remove('phone');
+  hashmap.remove('email');
+  printHashMapAuxiliaryInfo(hashmap);
+</script>
+
+
+<h3>Remove Nonexistent Keys</h3>
+<script>
+  hashmap.remove('age');
+  hashmap.remove('name');
+  printHashMapAuxiliaryInfo(hashmap);
+</script>
+
+</body>
+</html>
